@@ -6,19 +6,18 @@ Hope it could help you build client-side app swiftly.
 
 ## Run
 
-`grunt server`
+`gulp serve` to start a hot reload server
 
 ## Feature
 
 - ES6+ support
 - Redux included
 - react-router included
-- scss support
+- Hot reload
+- webpack based
 
 ## TODO
 
-- more interesting demo
-- complete tests
-- find better route history solution
-- try to convert to yeoman-generator
-- find inline-css solution
+- [x] convert to gulp
+- [ ] add css in js
+- [ ] find better router sulution

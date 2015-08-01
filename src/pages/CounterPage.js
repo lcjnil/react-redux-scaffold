@@ -1,14 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import * as CounterActions from '../actions/CounterActions.js';
 
+
 @connect(state => {
   return {
-    counter: state.counter
+    counter: state.counter,
   };
 })
 export default class CounterPage extends Component {
+  static propTypes = {
+    counter: PropTypes.number,
+    dispatch: PropTypes.func,
+  }
+
   render() {
     const { counter, dispatch } = this.props;
     return (

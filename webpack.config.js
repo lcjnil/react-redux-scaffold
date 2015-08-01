@@ -7,10 +7,12 @@
 'use strict';
 var webpack = require('webpack');
 
+var assetPath = require('path').join(__dirname, 'dist');
+
 module.exports = {
 
   output: {
-    path: require('path').join(__dirname, 'dist'),
+    path: assetPath,
     filename: 'main.js',
     publicPath: '/assets/'
   },
@@ -19,8 +21,9 @@ module.exports = {
   debug: true,
   devtool: 'sourcemap',
   entry: [
-      'webpack/hot/only-dev-server',
-      './src/main.js'
+    'webpack-dev-server/client?http://localhost:9999',
+    'webpack/hot/only-dev-server',
+    './src/main.js'
   ],
 
   stats: {
@@ -32,20 +35,23 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
     alias: {
       'styles': __dirname + '/src/styles',
-      'mixins': __dirname + '/src/mixins',
-      'components': __dirname + '/src/components/'
+      'components': __dirname + '/src/components/',
+      'reducers': __dirname + '/src/reducers/',
+      'actions': __dirname + '/src/actions/',
+      'constants': __dirname + '/src/constants/',
+      'pages': __dirname + '/src/pages/',
     }
   },
   module: {
     preLoaders: [{
       test: /\.(js|jsx)$/,
-      exclude: /node_modules/,
+      exclude: /node_module/,
       loader: 'eslint-loader'
     }],
     loaders: [{
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel-loader'
+      loaders: ['react-hot', 'babel']
     }, {
       test: /\.scss/,
       loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
@@ -59,7 +65,13 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.DefinePlugin({
+      __DEVELOPMENT__: true,
+      __DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
+    }),
+
   ]
 
 };

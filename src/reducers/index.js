@@ -1,3 +1,1 @@
-import counter from './counter.js';
-
-export { counter };
+export counter from './counter';

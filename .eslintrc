@@ -1,48 +1,27 @@
 {
-  "parser": "babel-eslint",
+  "extends": "eslint-config-airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2,
+    // Temporarirly disabled due to a possible bug in babel-eslint (todomvc example)
+    "block-scoped-var": 0,
+    // Temporarily disabled for test/* until babel/babel-eslint#33 is resolved
+    "padded-blocks": 0,
+    "no-console": 0
+  },
   "plugins": [
     "react"
   ],
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
   "globals": {
-    "__DEV__": true,
-    "__SERVER__": true
-  },
-  "ecmaFeatures": {
-    "jsx": true
-  },
-  "rules": {
-    // Strict mode
-    "strict": [2, "never"],
-
-    // Code style
-    "indent": [2, 2],
-    "quotes": [2, "single"],
-
-    // React
-    "react/display-name": 0,
-    "react/jsx-boolean-value": 1,
-    "react/jsx-no-duplicate-props": 1,
-    "react/jsx-no-undef": 1,
-    "react/jsx-quotes": 1,
-    "react/jsx-sort-prop-types": 0,
-    "react/jsx-sort-props": 0,
-    "react/jsx-uses-react": 1,
-    "react/jsx-uses-vars": 1,
-    "react/no-danger": 0,
-    "react/no-did-mount-set-state": 1,
-    "react/no-did-update-set-state": 1,
-    "react/no-multi-comp": 1,
-    "react/no-unknown-property": 1,
-    "react/prop-types": 1,
-    "react/react-in-jsx-scope": 1,
-    "react/require-extension": 1,
-    "react/self-closing-comp": 1,
-    "react/sort-comp": 1,
-    "react/wrap-multilines": 1
+    "__DEVELOPMENT__": true,
+    "__CLIENT__": true,
+    "__SERVER__": true,
+    "__DISABLE_SSR__": true,
+    "__DEVTOOLS__": true
   }
 }

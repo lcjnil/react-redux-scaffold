@@ -1,26 +1,35 @@
 import React, { Component } from 'react';
-import { Router, Route } from 'react-router';
-import { history } from 'react-router/lib/HashHistory';
-//for redux
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { provide } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import { devTools } from 'redux-devtools';
+import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 
-import { IndexPage, CounterPage } from './pages';
 import * as reducers from './reducers';
+import Tashuo from './Tashuo';
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const finalCreateStore = compose(
+  applyMiddleware(thunk),
+  devTools(),
+  createStore
+);
+
 const reducer = combineReducers(reducers);
-const store = createStoreWithMiddleware(reducer);
+const store = finalCreateStore(reducer);
 
-@provide(store)
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
-      <Router history={history}>
-        <Route path="/" component={IndexPage}></Route>
-        <Route path="/counter" component={CounterPage}></Route>
-      </Router>
+      <div>
+        <Provider store={store}>
+          {() => <Tashuo />}
+        </Provider>
+
+        <DebugPanel top right bottom>
+          <DevTools store={store}
+                    monitor={LogMonitor} />
+        </DebugPanel>
+      </div>
     );
   }
 }
