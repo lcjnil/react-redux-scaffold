@@ -19,5 +19,6 @@ Hope it could help you build client-side app swiftly.
 ## TODO
 
 - [x] convert to gulp
-- [ ] add css in js
+- [x] add css in js
+- [ ] add test include
 - [ ] find better router sulution

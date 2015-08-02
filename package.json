@@ -12,7 +12,9 @@
   "dependencies": {
     "babel": "5.4.7",
     "babel-plugin-typecheck": "0.0.3",
+    "immutable": "^3.7.4",
     "normalize.css": "~3.0.3",
+    "radium": "^0.13.5",
     "react": "0.13.x",
     "react-redux": "^0.2.2",
     "react-router": "1.0.0-beta3",
@@ -34,7 +36,6 @@
     "gulp-load-plugins": "^0.10.0",
     "gulp-serve": "^1.0.0",
     "gulp-size": "^1.2.3",
-    "jasmine-core": "^2.3.4",
     "react-hot-loader": "^1.2.8",
     "redux": "^1.0.0-rc",
     "redux-devtools": "^0.1.2",
