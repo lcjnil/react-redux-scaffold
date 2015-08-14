@@ -8,14 +8,22 @@ Hope it could help you build client-side app swiftly.
 
 `gulp serve` to start a hot reload server
 
+`gulp build:dist` to build production code!
+
 ## Feature
 
 - ES6+ support
-- Redux included
+- Redux included (also devtools)
 - react-router included
 - Hot reload
 - webpack based
-- All package latest!
+- All package **latest**!
+
+## Tips
+
+- .raw.css would help you if you want REALLY RAW css
+- run both webpack dev server && mock server(/src/server.js)
+- fill your mock data in /src/mock!
 
 ## TODO
 

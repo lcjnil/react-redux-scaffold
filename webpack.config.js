@@ -39,28 +39,32 @@ module.exports = {
       'reducers': __dirname + '/src/reducers/',
       'actions': __dirname + '/src/actions/',
       'constants': __dirname + '/src/constants/',
-      'pages': __dirname + '/src/pages/',
+      'pages': __dirname + '/src/pages/'
     }
   },
   module: {
     preLoaders: [{
       test: /\.(js|jsx)$/,
-      exclude: /node_module/,
-      loader: 'eslint-loader'
+      exclude: [/node_module/, 'server.js', 'mock/*'],
+      loader: 'eslint'
     }],
     loaders: [{
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loaders: ['react-hot', 'babel']
+      loader: 'react-hot!babel'
     }, {
       test: /\.scss/,
-      loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+      loader: 'style!css!autoprefixer-loader!sass?outputStyle=expanded'
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      exclude: /\.raw\.css$/,
+      loader: 'style!css!autoprefixer-loader'
+    }, {
+      test: /\.raw\.css$/,
+      loader: 'style!raw!autoprefixer-loader'
     }, {
       test: /\.(png|jpg|woff|woff2)$/,
-      loader: 'url-loader?limit=8192'
+      loader: 'url?limit=8192'
     }]
   },
 
@@ -70,8 +74,7 @@ module.exports = {
     new webpack.DefinePlugin({
       __DEVELOPMENT__: true,
       __DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
-    }),
-
+    })
   ]
 
 };

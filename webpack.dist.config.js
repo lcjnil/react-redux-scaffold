@@ -14,7 +14,7 @@ module.exports = {
   output: {
     path: assetPath,
     filename: 'main.js',
-    publicPath: '/assets/'
+    publicPath: '/'
   },
   devtool: 'source-map',
   progress: true,
@@ -35,33 +35,36 @@ module.exports = {
       'reducers': __dirname + '/src/reducers/',
       'actions': __dirname + '/src/actions/',
       'constants': __dirname + '/src/constants/',
-      'pages': __dirname + '/src/pages/',
+      'pages': __dirname + '/src/pages/'
     }
   },
   module: {
     preLoaders: [{
       test: /\.(js|jsx)$/,
-      exclude: /node_module/,
-      loader: 'eslint-loader'
+      exclude: [/node_module/, 'server.js', 'mock/*'],
+      loader: 'eslint'
     }],
     loaders: [{
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'react-hot!babel?optional=runtime'
     }, {
       test: /\.scss/,
-      loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
+      loader: 'style!css!autoprefixer-loader!sass'
     }, {
       test: /\.css$/,
-      loader: 'style-loader!css-loader'
+      exclude: /\.raw\.css$/,
+      loader: 'style!css!autoprefixer-loader'
+    }, {
+      test: /\.raw\.css$/,
+      loader: 'style!raw!autoprefixer-loader'
     }, {
       test: /\.(png|jpg|woff|woff2)$/,
-      loader: 'url-loader?limit=8192'
+      loader: 'url?limit=8192'
     }]
   },
 
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       __DEVELOPMENT__: false,
       __DEVTOOLS__: false  // <-------- DISABLE redux-devtools HERE
@@ -72,7 +75,7 @@ module.exports = {
       compress: {
         warnings: false
       }
-    }),
+    })
   ]
 
 };
