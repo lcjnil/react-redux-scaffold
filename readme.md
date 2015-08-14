@@ -15,10 +15,12 @@ Hope it could help you build client-side app swiftly.
 - react-router included
 - Hot reload
 - webpack based
+- All package latest!
 
 ## TODO
 
 - [x] convert to gulp
 - [x] add css in js
+- [x] update eslint!
 - [ ] add test include
-- [ ] find better router sulution
+- [ ] find better router solution

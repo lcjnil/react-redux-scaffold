@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
 import * as reducers from './reducers';
-import Tashuo from './Tashuo';
+import Routes from './Routes.js';
 
 const finalCreateStore = compose(
   applyMiddleware(thunk),
@@ -22,7 +22,7 @@ export default class App extends Component {
     return (
       <div>
         <Provider store={store}>
-          {() => <Tashuo />}
+          {() => <Routes />}
         </Provider>
 
         <DebugPanel top right bottom>

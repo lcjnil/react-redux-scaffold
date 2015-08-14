@@ -6,13 +6,14 @@ import * as CounterActions from '../actions/CounterActions.js';
 
 @connect(state => {
   return {
-    counter: state.counter,
+    counter: state.counter
   };
 })
 export default class CounterPage extends Component {
+
   static propTypes = {
     counter: PropTypes.number,
-    dispatch: PropTypes.func,
+    dispatch: PropTypes.func
   }
 
   render() {

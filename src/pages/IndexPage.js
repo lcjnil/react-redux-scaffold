@@ -8,9 +8,9 @@ const styles = {
   p: {
     color: baseCss.color.primary,
     ':hover': {
-      color: 'red',
-    },
-  },
+      color: 'red'
+    }
+  }
 };
 
 @Radium
@@ -22,8 +22,8 @@ export default class IndexPage extends Component {
           scopeSelector=".one-div"
           rules={{
             a: {
-              color: 'red',
-            },
+              color: 'red'
+            }
           }}/>
         <p style={styles.p}>this is the index page</p>
         <Link to="/counter">GO TO COUNTER</Link>
