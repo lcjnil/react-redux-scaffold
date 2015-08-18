@@ -1,1 +1,3 @@
-export counter from './counter';
+import { todos, filter } from './todos.js';
+
+export { todos, filter };

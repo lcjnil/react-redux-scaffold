@@ -10,6 +10,8 @@ var port = 3001;
 var publicPath = path.resolve(__dirname, '../dist');
 
 app.use(express.static(publicPath));
+
+// write your fake server in Router!!!
 app.use(Router);
 
 // proxy all assets to webpack dev server

@@ -1,4 +1,4 @@
 import IndexPage from './IndexPage.js';
-import CounterPage from './CounterPage.js';
+import TodosPage from './TodosPage.js';
 
-export { IndexPage, CounterPage };
+export { IndexPage, TodosPage };
