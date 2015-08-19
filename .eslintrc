@@ -19,7 +19,9 @@
     ],
     "no-reserved-keys": 0,
     "no-wrap-func": 0,
-    "spaced-line-comment": 0
+    "spaced-line-comment": 0,
+    // disabled dueto eslint error
+    "no-duplicate-case": 0
   },
   "env": {
     "es6": true,
