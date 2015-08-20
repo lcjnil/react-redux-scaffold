@@ -4,11 +4,17 @@ This project is based on [generator-react-webpack](https://github.com/newtriks/g
 
 Hope it could help you build client-side app swiftly.
 
+This scaffold is aimed at build client-side only react apps, not for build universal apps.
+
+Write in progress, issues are welcomed.
+
 ## Run
 
-`gulp serve` to start a hot reload server
+`gulp serve` to start a hot reload server.
 
-`gulp build:dist` to build production code!
+`gulp build:dist` to build production code.
+
+`node src/server.js` to start a mocking serve.
 
 ## Feature
 
@@ -19,11 +25,19 @@ Hope it could help you build client-side app swiftly.
 - webpack based
 - All package **latest**!
 
-## Tips
+## Guide
 
-- .raw.css would help you if you want REALLY RAW css
-- run both webpack dev server && mock server(/src/server.js)
-- fill your mock data in /src/mock!
+### Style Guide
+
+- `.raw.css` will be append to dom without any procession (useful when you don't want to compile images or font)
+- `.useable.css` can be [mount manually](https://github.com/webpack/style-loader#reference-counted-api)
+- third party css should use local loaders
+
+
+### JS Guid
+
+- write your reusable components in `src/components`
+- write your pages in `src/pages`
 
 ## TODO
 
