@@ -54,17 +54,17 @@ module.exports = {
       loader: 'react-hot!babel'
     }, {
       test: /\.scss/,
-      loader: 'style!css!autoprefixer-loader!sass?outputStyle=expanded'
+      loader: 'style!css!autoprefixer!sass?outputStyle=expanded'
     }, {
       test: /\.css$/,
       exclude: [/\.raw\.css$/, /\.useable\.css$/, /node_module/],
-      loader: 'style!css!autoprefixer-loader'
+      loader: 'style!css!autoprefixer'
     }, {
       test: /\.useable\.css$/,
-      loader: 'style/useable!raw!autoprefixer-loader'
+      loader: 'style/useable!raw!autoprefixer'
     }, {
       test: /\.raw\.css$/,
-      loader: 'style!raw!autoprefixer-loader'
+      loader: 'style!raw!autoprefixer'
     }, {
       test: /\.(png|jpg|woff|woff2)$/,
       loader: 'url?limit=8192'

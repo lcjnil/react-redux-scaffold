@@ -47,17 +47,20 @@ module.exports = {
     loaders: [{
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel?optional=runtime'
+      loader: 'babel'
     }, {
       test: /\.scss/,
-      loader: 'style!css!autoprefixer-loader!sass'
+      loader: 'style!css!autoprefixer!sass?outputStyle=expanded'
     }, {
       test: /\.css$/,
-      exclude: /\.raw\.css$/,
-      loader: 'style!css!autoprefixer-loader'
+      exclude: [/\.raw\.css$/, /\.useable\.css$/, /node_module/],
+      loader: 'style!css!autoprefixer'
+    }, {
+      test: /\.useable\.css$/,
+      loader: 'style/useable!raw!autoprefixer'
     }, {
       test: /\.raw\.css$/,
-      loader: 'style!raw!autoprefixer-loader'
+      loader: 'style!raw!autoprefixer'
     }, {
       test: /\.(png|jpg|woff|woff2)$/,
       loader: 'url?limit=8192'
