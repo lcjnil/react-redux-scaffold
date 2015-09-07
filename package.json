@@ -10,12 +10,12 @@
   "mainInput": "main",
   "mainOutput": "main",
   "dependencies": {
-    "babel": "5.8.21",
+    "babel": "5.8.23",
     "immutable": "^3.7.4",
     "normalize.css": "~3.0.3",
     "radium": "^0.13.7",
     "react": "0.13.x",
-    "react-redux": "^0.9.0",
+    "react-redux": "^1.0.1",
     "react-router": "1.0.0-beta3",
     "redux": "^1.0.1",
     "redux-thunk": "^0.1.0",
@@ -23,15 +23,15 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^2.0.0",
-    "babel-core": "5.8.22",
+    "babel-core": "5.8.23",
     "babel-eslint": "^4.0.10",
     "babel-loader": "5.3.2",
     "babel-runtime": "^5.8.20",
-    "css-loader": "~0.16.0",
-    "del": "^1.2.1",
+    "css-loader": "~0.17.0",
+    "del": "^2.0.1",
     "ecstatic": "^0.8.0",
     "eslint": "^1.1.0",
-    "eslint-config-airbnb": "0.0.7",
+    "eslint-config-airbnb": "0.0.8",
     "eslint-config-airplus": "^1.0.4",
     "eslint-loader": "^1.0.0",
     "eslint-plugin-react": "^3.2.3",
@@ -48,7 +48,7 @@
     "sass-loader": "^2.0.1",
     "style-loader": "~0.12.3",
     "url-loader": "~0.5.6",
-    "webpack": "~1.11.0",
+    "webpack": "~1.12.1",
     "webpack-dev-server": "~1.10.1"
   }
 }
