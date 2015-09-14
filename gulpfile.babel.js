@@ -43,9 +43,15 @@ gulp.task('build', ['clean'], () => {
   RunSequnence(['assets', 'bundle']);
 });
 
+gulp.task('copyIndex', (cb) => {
+  return gulp.src(['src/index.html'])
+    .pipe($.replace('assets/main.js', 'main.js'))
+    .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('build:dist', ['clean'], (cb) => {
   options.dist = true;
-  RunSequnence(['assets', 'bundle'], cb)
+  RunSequnence(['assets', 'bundle', 'copyIndex'], cb)
 });
 
 gulp.task('build:watch', ['clean'], (cb) => {
