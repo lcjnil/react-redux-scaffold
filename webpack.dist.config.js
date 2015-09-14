@@ -6,6 +6,7 @@
  */
 'use strict';
 var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var assetPath = require('path').join(__dirname, 'dist');
 
@@ -78,7 +79,8 @@ module.exports = {
       compress: {
         warnings: false
       }
-    })
+    }),
+    new HtmlWebpackPlugin()
   ]
 
 };

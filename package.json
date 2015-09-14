@@ -42,6 +42,7 @@
     "gulp-load-plugins": "^1.0.0-rc.1",
     "gulp-serve": "^1.0.0",
     "gulp-size": "^2.0.0",
+    "html-webpack-plugin": "^1.6.1",
     "http-proxy": "^1.11.1",
     "raw-loader": "^0.5.1",
     "react-hot-loader": "^1.2.8",
