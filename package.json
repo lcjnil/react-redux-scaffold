@@ -4,6 +4,7 @@
   "description": "combination of redux, react-router and ES7+ support ",
   "repository": "",
   "author": "lcj <emlcjnil@gmail.com>",
+  "scripts": {},
   "src": "src",
   "test": "test",
   "dist": "dist",
@@ -11,6 +12,7 @@
   "mainOutput": "main",
   "dependencies": {
     "babel": "5.8.23",
+    "gulp": "^3.9.0",
     "immutable": "^3.7.4",
     "normalize.css": "~3.0.3",
     "radium": "^0.13.7",
@@ -22,14 +24,14 @@
     "todomvc-app-css": "^2.0.1"
   },
   "devDependencies": {
-    "autoprefixer-loader": "^2.0.0",
+    "autoprefixer-loader": "^3.1.0",
     "babel-core": "5.8.23",
     "babel-eslint": "^4.0.10",
     "babel-loader": "5.3.2",
     "babel-runtime": "^5.8.20",
-    "css-loader": "~0.17.0",
+    "css-loader": "~0.18.0",
     "del": "^2.0.1",
-    "ecstatic": "^0.8.0",
+    "ecstatic": "^1.0.0",
     "eslint": "^1.1.0",
     "eslint-config-airbnb": "0.0.8",
     "eslint-config-airplus": "^1.0.4",

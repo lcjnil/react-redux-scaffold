@@ -9,8 +9,8 @@ import RunSequnence from 'run-sequence';
 const $ = gulpLoadPlugins();
 let options = {};
 
-gulp.task('clean', (cb) => {
-  del(['dist/'], cb);
+gulp.task('clean', () => {
+  return del(['dist/']);
 });
 
 // run webpack bundler
@@ -39,8 +39,8 @@ gulp.task('assets', (cb) => {
     pipe($.size({title: 'assets'}));
 });
 
-gulp.task('build', ['clean'], (cb) => {
-  RunSequnence(['assets', 'bundle'], cb)
+gulp.task('build', ['clean'], () => {
+  RunSequnence(['assets', 'bundle']);
 });
 
 gulp.task('build:dist', ['clean'], (cb) => {
