@@ -6,6 +6,8 @@
  */
 'use strict';
 var webpack = require('webpack');
+var cssnext = require('cssnext');
+var precss = require('precss');
 
 var assetPath = require('path').join(__dirname, 'dist');
 
@@ -21,8 +23,7 @@ module.exports = {
   debug: true,
   devtool: 'sourcemap',
   entry: [
-    'webpack-dev-server/client?http://localhost:9999',
-    'webpack/hot/only-dev-server',
+    'webpack-hot-middleware/client',
     './src/main.js'
   ],
 
@@ -49,22 +50,28 @@ module.exports = {
       loader: 'eslint'
     }],
     loaders: [{
-      test: /\.(js|jsx)$/,
+      test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel'
+      loader: 'babel',
+      query: {
+        plugins: ['react-transform'],
+        extra: {
+          'react-transform': {
+            transforms: [{
+              transform: 'react-transform-hmr',
+              imports: ['react'],
+              locals: ['module'],
+            }, {
+              transform: 'react-transform-catch-errors',
+              imports: ['react', 'redbox-react'],
+            }]
+          }
+        }
+      }
     }, {
-      test: /\.scss/,
-      loader: 'style!css!autoprefixer!sass?outputStyle=expanded'
-    }, {
-      test: /\.css$/,
+      test: /\.css/,
       exclude: [/\.raw\.css$/, /\.useable\.css$/, /node_module/],
-      loader: 'style!css!autoprefixer'
-    }, {
-      test: /\.useable\.css$/,
-      loader: 'style/useable!raw!autoprefixer'
-    }, {
-      test: /\.raw\.css$/,
-      loader: 'style!raw!autoprefixer'
+      loader: 'style!css?module&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
     }, {
       test: /\.(png|jpg|woff|woff2)$/,
       loader: 'url?limit=8192'
@@ -72,12 +79,21 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       __DEVELOPMENT__: true,
       __DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
     })
   ],
+
+  postcss: function() {
+    return [
+      cssnext({
+        autoprefixer: ['last 2 version']
+      }),
+      precss
+    ]
+  }
 
 };

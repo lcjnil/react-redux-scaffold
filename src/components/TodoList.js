@@ -27,7 +27,6 @@ export default class TodoList extends Component {
             <label>{item.get('text')}</label>
             <button className="destroy" onClick={this.handleDestroy.bind(this, index)}></button>
           </div>
-          <input className="edit" value="Create a TodoMVC template" />
         </li>
       );
     }
