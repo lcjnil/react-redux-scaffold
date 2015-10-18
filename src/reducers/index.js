@@ -1,3 +1,12 @@
+import { combineReducers } from 'redux';
+import { routerStateReducer as router } from 'redux-router';
+
 import { todos, filter } from './todos.js';
 
-export { todos, filter };
+const rootReducer = combineReducers({
+  todos,
+  filter,
+  router
+});
+
+export default rootReducer;

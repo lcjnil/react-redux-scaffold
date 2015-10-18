@@ -1,3 +1,8 @@
-p {
-  flex: 1
+.parent {
+  color: red;
+  .child {
+    color: blue;
+    font-size: 20px;
+    transition: 1ms;
+  }
 }

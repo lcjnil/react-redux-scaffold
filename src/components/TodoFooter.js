@@ -20,7 +20,7 @@ export default class TodoFooter extends Component {
         <ul className="filters">
           {
             types.map((type, index) =>
-              <li><a className={filter === type && 'selected'} key={index} onClick={() => setFilter(type)}>{type}</a></li>
+              <li key={index}><a className={filter === type && 'selected'} onClick={() => setFilter(type)}>{type}</a></li>
             )
           }
         </ul>

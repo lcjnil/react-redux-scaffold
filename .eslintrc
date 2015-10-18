@@ -27,6 +27,9 @@
         "render",
         "everything-else"
       ]
+    }],
+    "id-length": [1, {
+      "exceptions": ["e"]
     }]
   },
   "env": {
@@ -41,5 +44,8 @@
   },
   "plugins": [
     "react"
-  ]
+  ],
+  "globals": {
+    "__DEVTOOLS__": true
+  }
 }
