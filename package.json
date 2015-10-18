@@ -8,7 +8,7 @@
     "serve": "node scripts/serve.js",
     "clean": "node scripts/clean.js",
     "asset": "node scripts/asset.js",
-    "build": "npm run clean & npm run asset & node scripts/build.js"
+    "build": "npm run clean; npm run asset; node scripts/build.js"
   },
   "src": "src",
   "dependencies": {

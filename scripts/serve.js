@@ -1,10 +1,12 @@
-var path = require('path');
-var express = require('express');
-var webpack = require('webpack');
-var config = require('../webpack.config.js');
+require('babel/register');
 
-var app = express();
-var compiler = webpack(config);
+const path = require('path');
+const express = require('express');
+const webpack = require('webpack');
+const config = require('../webpack.config.js').development;
+
+const app = express();
+const compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: false,
@@ -17,7 +19,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 app.use(require('webpack-hot-middleware')(compiler));
 app.use('api', require('../src/mock'));
 
-app.listen(3000, 'localhost', function(err) {
+app.listen(3000, 'localhost', (err) => {
   if (err) {
     console.log(err);
     return;
