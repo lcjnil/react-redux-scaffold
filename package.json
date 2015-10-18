@@ -5,7 +5,10 @@
   "repository": "git@github.com:lcjnil/react-redux-scaffold.git",
   "author": "lcj <emlcjnil@gmail.com>",
   "scripts": {
-    "serve": "node scripts/serve.js"
+    "serve": "node scripts/serve.js",
+    "clean": "node scripts/clean.js",
+    "asset": "node scripts/asset.js",
+    "build": "npm run clean & npm run asset & node scripts/build.js"
   },
   "src": "src",
   "dependencies": {
@@ -23,7 +26,6 @@
     "todomvc-app-css": "^2.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "^6.0.3",
     "babel-core": "5.8.25",
     "babel-eslint": "^4.1.3",
     "babel-loader": "5.3.2",
@@ -31,6 +33,7 @@
     "babel-runtime": "^5.8.25",
     "css-loader": "~0.19.0",
     "cssnext": "^1.8.4",
+    "del": "^2.0.2",
     "ecstatic": "^1.1.3",
     "eslint": "^1.6.0",
     "eslint-config-airbnb": "0.1.0",
@@ -38,6 +41,8 @@
     "eslint-loader": "^1.1.0",
     "eslint-plugin-react": "^3.5.1",
     "express": "^4.13.3",
+    "html-webpack-plugin": "^1.6.2",
+    "ncp": "^2.0.0",
     "postcss-loader": "^0.6.0",
     "precss": "^1.2.3",
     "react-hot-loader": "^1.3.0",

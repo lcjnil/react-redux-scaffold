@@ -1,13 +1,8 @@
-/*
- * Webpack development server configuration
- *
- * This file is set up for serving the webpack-dev-server, which will watch for changes and recompile as required if
- * the subfolder /webpack-dev-server/ is visited. Visiting the root will not automatically reload.
- */
 'use strict';
 var webpack = require('webpack');
 var cssnext = require('cssnext');
 var precss = require('precss');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var assetPath = require('path').join(__dirname, 'dist');
 
@@ -16,7 +11,7 @@ module.exports = {
   output: {
     path: assetPath,
     filename: 'main.js',
-    publicPath: '/assets/'
+    publicPath: '/'
   },
 
   cache: true,
@@ -35,18 +30,19 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
-      'styles': __dirname + '/src/styles',
-      'components': __dirname + '/src/components/',
-      'reducers': __dirname + '/src/reducers/',
       'actions': __dirname + '/src/actions/',
+      'components': __dirname + '/src/components/',
       'constants': __dirname + '/src/constants/',
-      'pages': __dirname + '/src/pages/'
+      'pages': __dirname + '/src/pages/',
+      'reducers': __dirname + '/src/reducers/',
+      'styles': __dirname + '/src/styles',
+      'images': __dirname + '/src/public/images'
     }
   },
   module: {
     preLoaders: [{
-      test: /\.(js|jsx)$/,
-      exclude: [/node_module/, 'server.js', 'mock/*'],
+      test: /\.js$/,
+      exclude: [/node_module/, 'mock/*'],
       loader: 'eslint'
     }],
     loaders: [{
@@ -60,18 +56,22 @@ module.exports = {
             transforms: [{
               transform: 'react-transform-hmr',
               imports: ['react'],
-              locals: ['module'],
+              locals: ['module']
             }, {
               transform: 'react-transform-catch-errors',
-              imports: ['react', 'redbox-react'],
+              imports: ['react', 'redbox-react']
             }]
           }
         }
       }
     }, {
-      test: /\.css/,
-      exclude: [/\.raw\.css$/, /\.useable\.css$/, /node_module/],
+      test: /\.scss/,
+      exclude: [/node_module/],
       loader: 'style!css?module&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss'
+    }, {
+      test: /\.css/,
+      exclude: [/node_module/],
+      loader: 'style!css'
     }, {
       test: /\.(png|jpg|woff|woff2)$/,
       loader: 'url?limit=8192'
@@ -83,7 +83,11 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       __DEVELOPMENT__: true,
-      __DEVTOOLS__: true  // <-------- DISABLE redux-devtools HERE
+      __DEVTOOLS__: true
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html.tpl',
+      inject: 'body'
     })
   ],
 

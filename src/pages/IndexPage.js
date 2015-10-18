@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import styles from 'styles/main.css';
+import styles from 'styles/main.scss';
 
 export default class IndexPage extends Component {
   render() {
