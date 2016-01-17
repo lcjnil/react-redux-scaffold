@@ -5,7 +5,7 @@
   "repository": "git@github.com:lcjnil/react-redux-scaffold.git",
   "author": "lcj <emlcjnil@gmail.com>",
   "scripts": {
-    "serve": "node scripts/serve.js",
+    "server": "node scripts/server.js",
     "clean": "node scripts/clean.js",
     "asset": "node scripts/asset.js",
     "build": "npm run clean; npm run asset; node scripts/build.js"
