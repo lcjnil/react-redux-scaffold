@@ -12,7 +12,7 @@ This is a seed project for building static react website, not for build universa
 - learn [Redux](http://redux.js.org)
 - clone this project
 - install dependencies via `npm install`
-- run a test server by `npm run serve`
+- run a test server by `npm run server`
 
 ## Scripts
 
