@@ -18,6 +18,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 app.use('api', require('../src/mock'));
+app.use(express.static(path.resolve(__dirname, '../src/public')));
 
 app.listen(3000, 'localhost', (err) => {
   if (err) {
