@@ -6,17 +6,16 @@ import { ReduxRouter } from 'redux-router';
 import store from './lib/store';
 
 if (__DEVTOOLS__) {
-  const { DebugPanel, DevTools, LogMonitor } = require('redux-devtools/lib/react');
+  const DevTools =  require('./lib/devTools');
 
   render(
-    <div>
       <Provider store={store}>
-        <ReduxRouter />
+        <div>
+          <ReduxRouter />
+          <DevTools />
+        </div>
       </Provider>
-      <DebugPanel top right bottom>
-        <DevTools store={store} monitor={LogMonitor} />
-      </DebugPanel>
-    </div>,
+      ,
     document.getElementById('content')
   );
 } else {
