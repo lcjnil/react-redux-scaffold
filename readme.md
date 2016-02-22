@@ -34,4 +34,4 @@ Also, I use postcss to enhance css functions. You can write scss-like css, and u
 ## TODO
 
 - [ ] create a better demo
-- [ ] update redux-devtools
+- [ ] create Test Suits
