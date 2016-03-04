@@ -20,6 +20,7 @@
     "no-reserved-keys": 0,
     "no-wrap-func": 0,
     "spaced-line-comment": 0,
+    "object-curly-spacing": 0,
     "react/sort-comp": [1, {
       "order": [
         "constructor",
