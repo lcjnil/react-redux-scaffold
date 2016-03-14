@@ -31,6 +31,12 @@ I suggest use [css-modules](https://github.com/css-modules/css-modules) to style
 
 Also, I use postcss to enhance css functions. You can write scss-like css, and use some future tips via cssnext.
 
+### Redux Dev-tools
+
+To change the Devtool position press `ctrl + q` . To hide the dev tool press `ctrl + h`
+
+To disable the `console logs` when store changes remove `applyMiddleware(createLogger())` from `lib/store.js` 
+
 ## TODO
 
 - [ ] create a better demo
