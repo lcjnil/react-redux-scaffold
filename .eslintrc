@@ -1,52 +1,23 @@
 {
   "parser": "babel-eslint",
-  "rules": {
-    "indent": [
-      2,
-      2
-    ],
-    "quotes": [
-      2,
-      "single"
-    ],
-    "linebreak-style": [
-      2,
-      "unix"
-    ],
-    "semi": [
-      2,
-      "always"
-    ],
-    "no-reserved-keys": 0,
-    "no-wrap-func": 0,
-    "spaced-line-comment": 0,
-    "object-curly-spacing": 0,
-    "react/sort-comp": [1, {
-      "order": [
-        "constructor",
-        "lifecycle",
-        "render",
-        "everything-else"
-      ]
-    }],
-    "id-length": [1, {
-      "exceptions": ["e"]
-    }]
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
   },
   "env": {
-    "es6": true,
-    "node": true,
     "browser": true
   },
-  "extends": ["airbnb", "airplus"],
-  "ecmaFeatures": {
-    "jsx": true,
-    "experimentalObjectRestSpread": true
+  "rules": {
+    "max-len": 0,
+    "new-cap": 0,
+    "react/prefer-stateless-function": 0,
+    "react/prop-types": 0,
+    "react/jsx-no-bind": 0,
+    "comma-dangle": 0
   },
-  "plugins": [
-    "react"
-  ],
   "globals": {
-    "__DEVTOOLS__": true
+    "__DEVELOPMENT__": true
   }
 }

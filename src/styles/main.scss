@@ -1,8 +1,6 @@
-.parent {
-  color: red;
-  .child {
+.container {
+  border: 1px solid;
+  .header {
     color: blue;
-    font-size: 20px;
-    transition: 1ms;
   }
 }

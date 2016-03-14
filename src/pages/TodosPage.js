@@ -1,17 +1,8 @@
 import React, { Component } from 'react';
 import TodoApp from 'components/TodoApp';
+import { connect } from 'react-redux';
 
-const styles = require('style/useable!css!todomvc-app-css/index.css');
-export default class TodosPage extends Component {
-
-  componentWillMount() {
-    styles.use();
-  }
-
-  componentWillUnmount() {
-    styles.unuse();
-  }
-
+class TodosPage extends Component {
   render() {
     return (
       <div>
@@ -20,3 +11,9 @@ export default class TodosPage extends Component {
     );
   }
 }
+
+
+const mapStateToProps = function mapStateToProps(state) {
+  return { todos: state.todos, filter: state.filter };
+};
+export default connect(mapStateToProps, todosActionCreators)(TodosPage);

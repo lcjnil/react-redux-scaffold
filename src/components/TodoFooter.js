@@ -7,8 +7,8 @@ export default class TodoFooter extends Component {
 
   static propTypes = {
     todos: PropTypes.instanceOf(List).isRequired,
-    filter: PropTypes.string.isRequired
-  }
+    filter: PropTypes.string.isRequired,
+  };
 
   render() {
     const { todos, filter, setFilter } = this.props;

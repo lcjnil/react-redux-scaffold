@@ -1,12 +1,8 @@
-var Router = require('express').Router();
+const express = require('express');
+const router = new express.Router();
 
-Router.get('/api/todos', function(req, res) {
-  var data = [
-    {text: 'Better demo'},
-    {text: 'Make router into store'}
-  ];
-  res.status(200).json(data);
+router.get('/', (req, res) => {
+  res.end('Hello, world!');
 });
 
-module.exports = Router;
-
+module.exports = router;

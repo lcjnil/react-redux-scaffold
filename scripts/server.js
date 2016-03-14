@@ -1,30 +1,30 @@
-require('babel/register');
+require('babel-register');
 
-const path = require('path');
-const express = require('express');
-const webpack = require('webpack');
-const config = require('../webpack.config.js').development;
+var express = require('express');
+var path = require('path');
+var webpack = require('webpack');
+var config = require('../webpack.config').development;
 
-const app = express();
-const compiler = webpack(config);
+var app = express();
+var compiler = webpack(config);
 
 app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: false,
-  publicPath: config.output.publicPath,
-  stats: {
-    colors: true
-  }
+    noInfo: true,
+    publicPath: config.output.publicPath,
+    stats: {
+        color: true
+    }
 }));
 
+app.use('/api', require('../src/mock'));
 app.use(require('webpack-hot-middleware')(compiler));
-app.use('api', require('../src/mock'));
+
 app.use(express.static(path.resolve(__dirname, '../src/public')));
 
-app.listen(3000, 'localhost', (err) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-
-  console.log('Listening at http://localhost:3000');
+app.listen(3000, function(err) {
+    if (err) {
+        console.log(err);
+        return;
+    }
+    console.log('Listening at http://localhost:3000');
 });

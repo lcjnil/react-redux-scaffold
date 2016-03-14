@@ -1,17 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>React Redux Scaffold</title>
-</head>
-<body>
-  <div id="content">
-    <h1>If you can see this, something is broken (or JS is not enabled)!!.</h1>
-  </div>
-
-  <script>
-    __REACT_DEVTOOLS_GLOBAL_HOOK__ = parent.__REACT_DEVTOOLS_GLOBAL_HOOK__
-  </script>
-</body>
+  <head>
+    <title>React redux scaffold</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <div id="container">
+    </div>
+  </body>
 </html>

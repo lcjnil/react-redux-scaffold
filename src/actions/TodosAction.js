@@ -4,7 +4,7 @@ export function addTodo(text) {
   return {
     type: ADD_TODO,
     payload: {
-      text: text,
+      text,
       completed: false
     }
   };
@@ -14,7 +14,7 @@ export function toggleChecked(index) {
   return {
     type: TOGGLE_CHECKED,
     payload: {
-      index: index
+      index
     }
   };
 }
@@ -23,7 +23,7 @@ export function deleteTodo(index) {
   return {
     type: DELETE_TODO,
     payload: {
-      index: index
+      index
     }
   };
 }

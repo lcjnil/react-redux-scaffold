@@ -1,13 +1,19 @@
-/* eslint react/self-closing-comp:0 */
+import React, { Component } from 'react';
+import { Router, Route, hashHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 
-import React from 'react';
-import { Route } from 'react-router';
+import store from './lib/store';
+const history = syncHistoryWithStore(hashHistory, store);
+import IndexPage from 'pages/IndexPage';
+import TodoApp from 'components/TodoApp';
 
-import { IndexPage, TodosPage } from './pages';
-
-export default (
-  <div>
-    <Route path="/" component={IndexPage}/>
-    <Route path="/todos" component={TodosPage}/>
-  </div>
-);
+export default class Routes extends Component {
+  render() {
+    return (
+      <Router history={history}>
+        <Route path="/" component={IndexPage} />
+        <Route path="todo" component={TodoApp} />
+      </Router>
+    );
+  }
+}

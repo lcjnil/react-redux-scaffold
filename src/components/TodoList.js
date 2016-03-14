@@ -6,6 +6,14 @@ export default class TodoList extends Component {
   static propTypes = {
     todos: PropTypes.instanceOf(Immutable.List).isRequired,
     filter: PropTypes.string.isRequired
+  };
+
+  handleCheck(index) {
+    this.props.toggleChecked(index);
+  }
+
+  handleDestroy(index) {
+    this.props.deleteTodo(index);
   }
 
   render() {
@@ -23,7 +31,7 @@ export default class TodoList extends Component {
       list = todos.filter(filterFunc).map((item, index) =>
         <li key={index} className={item.get('completed') && 'completed'} >
           <div className="view">
-            <input type="checkbox" className="toggle" checked={item.get('completed')} onChange={this.handleCheck.bind(this, index)}/>
+            <input type="checkbox" className="toggle" checked={item.get('completed')} onChange={this.handleCheck.bind(this, index)} />
             <label>{item.get('text')}</label>
             <button className="destroy" onClick={this.handleDestroy.bind(this, index)}></button>
           </div>
@@ -32,21 +40,13 @@ export default class TodoList extends Component {
     }
     return (
       <section className="main">
-        <input type="checkbox" className="toggle-all"/>
+        <input type="checkbox" className="toggle-all" />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul className="todo-list">
           {list}
         </ul>
       </section>
     );
-  }
-
-  handleCheck(index) {
-    this.props.toggleChecked(index);
-  }
-
-  handleDestroy(index) {
-    this.props.deleteTodo(index);
   }
 }
 
